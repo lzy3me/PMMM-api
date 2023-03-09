@@ -8,7 +8,7 @@ const port = 3000
 app.use(compression())
 app.use(helmet())
 
-app.get('/qrpayment', (req, res) => {
+app.get('/m5pmmm/qrpayment', (req, res) => {
   try {
     const { msid, amount } = req.query;
 
