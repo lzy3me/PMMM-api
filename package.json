@@ -1,14 +1,14 @@
 {
-  "name": "MyApi",
+  "name": "pay-me-my-money",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple API to generate Thai QR Payment for my PMMM embedded project.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ."
   },
   "keywords": [],
-  "author": "",
+  "author": "lzy3me",
   "license": "ISC",
   "dependencies": {
     "compression": "^1.7.4",
