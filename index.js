@@ -9,11 +9,19 @@ app.use(compression())
 app.use(helmet())
 
 app.get('/qrpayment', (req, res) => {
-  const { msid, amount } = req.query;
+  try {
+    const { msid, amount } = req.query;
 
-  const qrval = generatePayload(msid, { amount: parseFloat(amount) });
+    if (!msid) throw { code: 500, message: "msid can't be empty" }
 
-  res.json({ qr: qrval })
+    if (msid.length < 10 || msid.length > 10) throw { code: 500, message: "msid can't be more or less than 10 digit" }
+
+    const qrval = generatePayload(msid, { amount: parseFloat(amount) });
+
+    res.status(200).json({ code: 200, message: "success", qr: qrval })
+  } catch (error) {
+    res.status(500).json(error);
+  }
 })
 
 app.listen(port, () => {
